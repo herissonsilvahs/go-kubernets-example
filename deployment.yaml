@@ -1,7 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: goserver
+  name: goserver-deployment
+  labels:
+    app: goserver-deployment
 spec:
   replicas: 4
   selector:
@@ -20,4 +22,5 @@ spec:
             memory: "128Mi"
             cpu: "500m"
         ports:
-          - containerPort: 3000
+        - containerPort: 3000
+          name: api
